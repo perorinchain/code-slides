@@ -19,14 +19,14 @@
 	<div class="reveal">
 		<div class="slides">
 			<section data-transition="fade">
-				<h1>Coding Template</h1>
+				<h1>Count Duplicates</h1>
 			</section>
 			<section data-transition="fade">
 				<pre><code data-trim data-noescape >
 
-"abcde" -> 0 # no characters repeats more than once
+"abcde" -> 0 # no characters repeats
 "aabbcde" -> 2 # 'a' and 'b'
-"aabBcde" -> 2 # 'a' occurs twice and 'b' twice (`b` and `B`)
+"aabBcde" -> 2 # 'a' and 'b' occur twice
 "indivisibility" -> 1 # 'i' occurs six times
 "aA11" -> 2 # 'a' and '1'
 "ABBA" -> 2 # 'A' and 'B' each occur twice
@@ -35,27 +35,27 @@
 			<section data-transition="fade">
 				<pre class="python"><code data-trim data-noescape style="tab-size:4;" data-line-numbers="|2-3|4|5|6-8|9|"  >
 
-					def duplicate_count(text):
-						seen = set()
-						dupes = set()
-						for char in text:
-							char = char.lower()
-							if char in seen:
-								dupes.add(char)
-							seen.add(char)
-						return len(dupes)
+def duplicate_count(text):
+	seen = set()
+	dupes = set()
+	for char in text:
+		char = char.lower()
+		if char in seen:
+			dupes.add(char)
+		seen.add(char)
+	return len(dupes)
 						</code></pre>
 			</section>
 
 			<section data-transition="fade">
 				<pre class="python"><code data-trim data-noescape style="tab-size:4" class="r-stretch">
 
-					def duplicate_count(text):
-						count = 0
-						for c in set(text.lower()):
-							if text.lower().count(c) > 1:
-								count += 1
-						return count
+def duplicate_count(text):
+	count = 0
+	for c in set(text.lower()):
+		if text.lower().count(c) > 1:
+			count += 1
+	return count
 						</code></pre>
 			</section>
 		</div>

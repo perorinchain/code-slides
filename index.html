@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="dist/reset.css" />
+	<link rel="stylesheet" href="dist/reveal.css" />
+	<link rel="stylesheet" href="dist/theme/black.css" />
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" />
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-transition="fade">
+				<h1>Coding Template</h1>
+			</section>
+			<section data-transition="fade">
+				<pre><code data-trim data-noescape >
+
+"abcde" -> 0 # no characters repeats more than once
+"aabbcde" -> 2 # 'a' and 'b'
+"aabBcde" -> 2 # 'a' occurs twice and 'b' twice (`b` and `B`)
+"indivisibility" -> 1 # 'i' occurs six times
+"aA11" -> 2 # 'a' and '1'
+"ABBA" -> 2 # 'A' and 'B' each occur twice
+						</code></pre>
+			</section>
+			<section data-transition="fade">
+				<pre class="python"><code data-trim data-noescape style="tab-size:4;" data-line-numbers="|2-3|4|5|6-8|9|"  >
+
+					def duplicate_count(text):
+						seen = set()
+						dupes = set()
+						for char in text:
+							char = char.lower()
+							if char in seen:
+								dupes.add(char)
+							seen.add(char)
+						return len(dupes)
+						</code></pre>
+			</section>
+
+			<section data-transition="fade">
+				<pre class="python"><code data-trim data-noescape style="tab-size:4" class="r-stretch">
+
+					def duplicate_count(text):
+						count = 0
+						for c in set(text.lower()):
+							if text.lower().count(c) > 1:
+								count += 1
+						return count
+						</code></pre>
+			</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+			progress: false,
+			controls: false,
+			width: 640,
+			height: 360,
+
+			// Factor of the display size that should remain empty around
+			// the content
+			margin: 0.0,
+			minScale: 0.1,
+			maxScale: 10.0,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+		});
+	</script>
+</body>
+
+</html>

@@ -15,7 +15,7 @@
 
 ## Code animation
 
-Add the `data-line-numbers` attribue to your `code` block to animate particular lines.
+Add the `data-line-numbers` or `data-no-line-numbers` attribue to your `code` block to animate particular lines.
 
 For example, `data-line-numbers="1|2-3|5|` will highlight line 1, then line 2 and 3 together, then line 5 and finally all lines together.
 

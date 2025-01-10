@@ -18,67 +18,24 @@
 	<div class="reveal">
 		<div class="slides">
 			<section data-transition="fade">
-				<h1>Clip Title</h1>
+				<h1>ＰＳスクレイピング</h1>
 			</section>
 			<section data-transition="fade">
-				<pre><code data-trim data-noescape
-					data-no-line-numbers="|1|2-3|4|5|" >
-"abcde" -> 0 # no characters repeats
-"aabbcde" -> 2 # 'a' and 'b'
-"aabBcde" -> 2 # 'a' and 'b' 'B'
-"indivisibility" -> 1 #  six is
-"aA11" -> 2 # 'a' and '1'
-"ABBA" -> 2 # 'A' and 'B' each occur twice
+				<pre class="powershell"><code data-trim data-noescape style="tab-size:4;" data-line-numbers="|1|2|"  >
+					PS C:\work> $SainoUrl = 'http://saino.co/'
+					PS C:\work> $SainoRes = Invoke-WebRequest -Uri $SainoUrl
 						</code></pre>
 			</section>
 			<section data-transition="fade" data-auto-animate>
-				<pre class="python" data-id="code-animation"><code data-trim data-noescape data-line-numbers
+				<pre class="powershell" data-id="code-animation"><code data-trim data-noescape data-line-numbers
 					 >
-def multiply(x,y):
-	#What goes here?
+					 PS C:\work> $SainoRes.Content
 						</code></pre>
 			</section>
 			<section data-transition="fade" data-auto-animate>
-				<pre class="python" data-id="code-animation"><code data-trim data-noescape data-line-numbers
+				<pre class="powershell" data-id="code-animation"><code data-trim data-noescape data-line-numbers
 					 >
-def multiply(x,y):
-	for i in range(y):
-		x += x
-	return x
-						</code></pre>
-			</section>
-			<section data-transition="fade">
-				<pre class="python"><code data-trim data-noescape style="tab-size:4;" data-line-numbers="|2-3|4|5|6-8|9|"  >
-def duplicate_count(text):
-	seen = set()
-	dupes = set()
-	for char in text:
-		char = char.lower()
-		if char in seen:
-			dupes.add(char)
-		seen.add(char)
-	return len(dupes)
-						</code></pre>
-			</section>
-			<section data-transition="fade">
-				<pre class="python"><code data-trim data-noescape style="tab-size:4" class="r-stretch">
-
-def duplicate_count(text):
-	count = 0
-	for c in set(text.lower()):
-		if text.lower().count(c) > 1:
-			count += 1
-	return count
-						</code></pre>
-			</section>
-			<section data-transition="fade">
-				<pre class="ocaml"><code data-trim data-noescape style="tab-size:4" class="r-stretch">
-
-				let rec sum u =
-					match u with
-					| [] -> 0
-					| x :: v -> x + sum v;;
-				val sum : int list -> int = <fun>
+					 PS C:\work> $SainoRes.ParsedHtml.getElementsByClassName('sectionWrapper')[0].childNodes[1].innerText
 						</code></pre>
 			</section>
 		</div>
